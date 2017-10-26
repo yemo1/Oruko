@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Landing";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="features_items">
+            <h2 class="title text-center">Choose your preferred Network Operator</h2>
+        </div>
+
+        <div class="col-md-4 col-md-offset-3 shadow">
+            @*<a href="Home/Index"><img src="~/Content/Images/MtnNg.png" alt="MTN NIGERIA" class="img-rounded img-thumbnail" /></a>*@
+            <a href="@Url.Action("Index", "Home", new { Network = "MTN" })">
+                <img alt="MTN NIGERIA" class="img-rounded img-thumbnail" src=@Url.Content("~/Content/Images/MtnNg.png") />
+            </a>
+        </div>
+        <div class="col-md-4 shadow">
+            <a href="@Url.Action("Index", "Home", new { Network = "ETISALAT"})">
+                <img alt="ETISALAT NIGERIA" class="img-rounded img-thumbnail" src=@Url.Content("~/Content/Images/Etisalat.jpg") />
+            </a>
+            @*<a href="Home/Index"><img src="~/Content/Images/Etisalat.jpg" alt="ETISALAT NIGERIA" class="img-rounded img-thumbnail" /></a>*@
+        </div>
+
+    </div>
+</div>
+

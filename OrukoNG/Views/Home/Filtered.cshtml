@@ -1,0 +1,77 @@
+﻿@using PagedList;
+@using PagedList.Mvc
+@model PagedList.IPagedList<OrukoData.ETune>
+@*@model List<string>*@
+
+@{
+    //ViewBag.Title = "Oruko to bere lati " +  ViewContext.RouteData.Values["name"].ToString();
+}
+
+@using (Html.BeginForm("Filtered", "Home", FormMethod.Get))
+{
+    <div class="container">
+        <div class="row">
+            @*<div class="col-sm-1">
+
+                </div>*@
+           
+            <div class="col-sm-12">
+                
+                <div class="form-inline search_box">
+                    <input id="SearchString" type="text" name="SearchString" placeholder="Search for a name" />
+                    <button id="btnSearch" class="btn btn-sm btn-warning">
+                        <i class="glyphicon glyphicon-search"></i>&nbsp;Search
+                    </button>
+                </div>
+                <div class="features_items">
+                    @*<h2 class="title text-center">Oruko ti o bere lati @ViewContext.RouteData.Values["name"].ToString()</h2>*@
+                    @foreach (var letter in Model)
+                    {
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        @*<span>@letter.Rbt_Name</span>*@
+                                       
+                                            @if (letter.Artiste == "Funmobile")
+                                            {
+                                                <a href="http://rbt.etisalat.com.ng/wap/tc=@letter.Rbt_Code">
+                                                    <img alt="images" src="@string.Concat("Content/Images/",letter.Rbt_Name,".jpg")" class="img-responsive" />
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="http://rbt.etisalat.com.ng/wap/tc=@letter.Rbt_Code">
+                                                    <img alt="images" src="@string.Concat("Content/Images/",letter.Artiste,".jpg")" class="img-responsive" />
+                                                </a>
+                                            }
+
+                                        <p>@letter.Rbt_Name</p>
+                                    </div>
+                                </div>
+                                <div class="choose">
+                                    <ul class="nav nav-pills nav-justified">
+                                        <li><a href="http://rbt.etisalat.com.ng/wap/tc=@letter.Rbt_Code"><i class="fa fa-shopping-cart"></i>Click to subscribe at &#8358;50/month</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            @{
+                if (Model.PageCount > 1)
+                {
+                    <div>
+                        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Filtered", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "unobtrusive" }))
+                    </div>
+                }
+            }
+
+        </div>
+
+    </div>
+}
+
+

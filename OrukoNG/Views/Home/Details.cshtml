@@ -1,0 +1,63 @@
+﻿@using PagedList;
+@using PagedList.Mvc
+@model PagedList.IPagedList<OrukoData.Tune>
+
+@*@model List<string>*@
+
+@{
+    ViewBag.Title = "Oruko to bere lati " + ViewContext.RouteData.Values["name"].ToString();
+}
+
+@using (Html.BeginForm("Details", "Home", FormMethod.Get))
+{
+    <div class="container">
+
+        <div class="row body-contents">
+            @*<div class="col-sm-1">
+
+                </div>*@
+            <div class="col-sm-12">
+                <div class="form-inline">
+                    <input id="SearchString" type="text" name="SearchString" class="form-control" placeholder="Search for a name" />
+                    <button id="btnSearch" class="btn btn-sm btn-warning">
+                        <i class="glyphicon glyphicon-search"></i>&nbsp;Search
+                    </button>
+                </div>
+                <div class="features_items">
+                    <h2 class="title text-center">Oruko ti o bere lati @ViewContext.RouteData.Values["name"].ToString()</h2>
+                    @foreach (var letter in Model)
+                    {
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo">
+                                    <span>@letter.Names</span>
+                                </div>
+                            </div>
+                            <div class="choose">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href="http://mtnrbt.com/?t=@letter.wCode"><i class="fa fa-shopping-cart"></i>&#8358;20 Weekly</a></li>
+                                    <li><a href="http://mtnrbt.com/?t=@letter.mCode"><i class="fa fa-shopping-cart"></i>&#8358;50 Monthly</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+
+            @{
+                if (Model.PageCount > 1)
+                {
+                    <div>
+                        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Details", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "unobtrusive" }))
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+}
+
+
+

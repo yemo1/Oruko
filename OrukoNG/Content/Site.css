@@ -1,0 +1,170 @@
+﻿
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.shadow{
+    -moz-box-shadow: 0 0 5px 5px #888;
+    -webkit-box-shadow: 0 0 5px 5px#888;
+    box-shadow: 0 0 5px 5px #888;
+    border-radius:5px;
+    min-height:250px;
+    width:250px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 250px;
+    cursor: pointer;
+    margin: 20px;
+    transition: all 2s;
+}
+
+
+
+a.blockLink{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius:5px;
+}
+
+.shadow:hover{
+    -webkit-transform:scale(1.2) rotate(3deg);
+  	-moz-transform:scale(1.2) rotate(1deg);
+  	-o-transform:scale(1.2) rotate(1deg);
+  	-ms-transform:scale(1.2) rotate(1deg);
+  	transform: scale(1.2) rotate(3deg)
+}
+
+.shadowContainer{
+ 
+    width:80%;
+    min-height:400px;
+    margin:30px auto 30px auto;
+    background:#222;
+}
+
+.shadowOuter{
+    width:90%;
+    margin:auto;
+}
+
+#contained {
+    display: flex;              /* establish flex container */
+    flex-direction:column;     /* stack flex items vertically */
+    justify-content: center;    /* center items vertically, in this case */
+    align-items: center;        /* center items horizontally, in this case */
+    height: 300px;
+}
+
+#center-div
+{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+div.box{
+    position: relative;
+     /*-moz-box-shadow: 0 0 5px 5px #888;
+    -webkit-box-shadow: 0 0 5px 5px#888;
+    box-shadow: 0 0 5px 5px #888;*/
+    border:1px solid #ccc;
+    border-radius:5px;
+    min-height:250px;
+    width:200px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 250px;
+    margin:30px;
+    /*padding: 20px;*/    
+}
+
+div.unbox{
+    margin:30px;
+}
+ 
+div.box:hover {
+    cursor: pointer;
+    opacity: .9;
+    /*color:#fe980f;*/
+}
+ 
+a.divLink, a.divLinks {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    font-size:80px;
+    font-weight:bold;
+    font-family:'Century Gothic';
+    /* Makes sure the link doesn't get underlined */
+    /*z-index: 10;*/
+    /* raises anchor tag above everything else in div */
+    /*background-color: white;*/
+    /*workaround to make clickable in IE */
+    /*opacity: 0;*/
+    /*workaround to make clickable in IE */
+    /*filter: alpha(opacity=0);*/
+    /*workaround to make clickable in IE */
+}
+a.divLink:hover, a.divLinks:hover {
+   color:#fe980f;
+    /* Makes sure the link doesn't get underlined */
+    /*z-index: 10;*/
+    /* raises anchor tag above everything else in div */
+    /*background-color: white;*/
+    /*workaround to make clickable in IE */
+    /*opacity: 0;*/
+    /*workaround to make clickable in IE */
+    /*filter: alpha(opacity=0);*/
+    /*workaround to make clickable in IE */
+}
+
+a.divLinks{
+    font-weight:normal;
+    font-size:xx-large;
+}
+
+.cen{
+	color: midnightblue;
+	font-family: 'Comic Sans MS';
+	font-size: 34px;
+	font-weight:bold;
+    vertical-align:middle;
+    text-align:center;
+}
+
+#centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  overflow:hidden
+}
+
+.body-contents{
+    background:url("~/Content/Images/abc-alphabet.jpg");
+}

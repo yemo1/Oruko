@@ -1,0 +1,41 @@
+﻿@using OrukoNG.Models;
+
+
+@model List<string>
+
+@{
+    ViewBag.Title = ViewContext.RouteData.Values["Network"].ToString();
+    //ViewBag.Title = "OrukoNG";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        @*<div class="col-sm-1">
+
+            </div>*@
+        <div class="col-sm-12">
+            <div class="features_items">
+                <h2 class="title text-center">Mu Okan ninu awon alfabeti yi</h2>
+                @foreach (var letter in Model)
+                {
+                    <div class="col-sm-4 box">
+                        @{
+                            if (ViewContext.RouteData.Values["Network"].ToString() == "MTN")
+                            {
+                                @Html.ActionLink(@letter, "Details", new { name = @letter }, new { @class = "divLink" });
+                            }
+                            else
+                            {
+                                @Html.ActionLink(@letter, "Filtered", new { name = @letter }, new { @class = "divLink" })
+                            }
+                        }
+                        @*@Html.ActionLink(@letter, "Filtered", new { name = @letter }, new { @class = "divLink" })*@
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
